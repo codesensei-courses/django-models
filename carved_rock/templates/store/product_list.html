@@ -1,0 +1,18 @@
+{% for p in products %}
+    <div class="row">
+        <div class="col-md-3" style="padding-bottom:1em;">
+            {% with p.images.all.0 as img %}
+                {% if img %}
+                    <img src="/media/{{ img }}">
+                {% endif %}
+            {% endwith %}
+            <h3 class="text-secondary">
+                <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
+            </h3>
+            <div class="text-primary">${{ p.price }}</div>
+            <div class="text-primary">In stock: {{ p.stock_count }}</div>
+        </div>
+    </div>
+    {% empty %}
+    Nothing to show.
+{% endfor %}
