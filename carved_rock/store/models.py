@@ -14,3 +14,5 @@ class Product(models.Model):
     #   instead of just "sku".
     #
     # Then, try to create and run the migration for this.
+
+    sku = models.CharField(verbose_name="Stock Keeping Unit", max_length=20, unique=True)
