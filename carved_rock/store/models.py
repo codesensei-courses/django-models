@@ -8,15 +8,21 @@ class Product(models.Model):
     description = models.TextField(default="", blank=True)
     sku = models.CharField(verbose_name="Stock Keeping Unit", max_length=20, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class ProductImage(models.Model):
     image = models.ImageField()
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return str(self.image)
 
-# Please add a model class Category
-# With a name and a many-to-many relation to product
-# So that any category can contain multiple products,
-# but a product can also be in several different categories
 
-# Make use of the django model field reference if needed
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    products = models.ManyToManyField('Product')
+
+    def __str__(self):
+        return self.name
