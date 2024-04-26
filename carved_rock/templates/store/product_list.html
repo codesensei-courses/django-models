@@ -1,0 +1,11 @@
+{% for p in products %}
+    <div class="row">
+        <div class="col-md-3" style="padding-bottom:1em;">
+            <h3 class="text-secondary">{{ p.name }}</h3>
+            <div class="text-primary">${{ p.price }}</div>
+            <div class="text-primary">In stock: {{ p.stock_count }}</div>
+        </div>
+    </div>
+    {% empty %}
+    Nothing to show.
+{% endfor %}

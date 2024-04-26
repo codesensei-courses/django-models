@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+    <div class="col-md-3" style=" margin:15px">
+    <form method="get" action="">
+        {{ form|crispy }}
+        <button type="submit">Filter</button>
+    </form>
+    </div></div>
+    <hr>
+    {% if products %}
+        <div class="crf-cigar-banner--container justify-content-center">
+            <h2>Results</h2>
+            {% include 'store/product_list.html' %}
+        </div>
+    {% endif %}
+{% endblock %}
