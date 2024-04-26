@@ -17,3 +17,4 @@ urlpatterns = [
 # The part after the + allows serving uploaded images
 # Don't do this in production!
 # See https://docs.djangoproject.com/en/5.0/howto/static-files/#serving-files-uploaded-by-a-user-during-development
+
