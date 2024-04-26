@@ -2,6 +2,7 @@ from decimal import Decimal
 
 from django.db import models
 from django.urls import reverse
+from django.utils.functional import cached_property
 from django.utils.text import slugify
 
 
@@ -35,7 +36,7 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("store:product-detail", kwargs={'pk': self.id})
 
-    @property
+    @cached_property
     def vat(self):
         return Decimal(.2) * self.price
 

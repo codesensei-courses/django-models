@@ -1,9 +1,11 @@
 {% for p in products %}
     <div class="row">
         <div class="col-md-3" style="padding-bottom:1em;">
-            {% if p.images.all.0 %}
-                <img src="/media/{{ p.images.all.0 }}">
-            {% endif %}
+            {% with p.images.all.0 as img %}
+                {% if img %}
+                    <img src="/media/{{ img }}">
+                {% endif %}
+            {% endwith %}
             <h3 class="text-secondary">
                 <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
             </h3>
