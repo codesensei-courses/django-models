@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block content %}
+     <div class="container crf-story">
+        <div class="row" style="display:block">
+        <div class="col-md-3">
+            <h3>{{ object.name }}</h3>
+            <p>
+                {{ object.description }}
+            </p>
+            $ {{ object.price }}<br>
+            In stock: {{ object.stock_count }}
+            </div>
+            {% for img in object.images.all  %}
+            <div class="col-md-3">
+                <img src="/media/{{ img.image }}" style="width: 100%">
+            </div>
+            {% endfor %}
+        </div>
+     </div>
+{% endblock %}
